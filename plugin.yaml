@@ -1,0 +1,25 @@
+name: offline-docsets
+version: 0.1.0
+manifest_version: 2
+api_version: 1
+description: List, search and read offline API documentation sets (Dash/Zeal docsets such as Python, Node.js, Bash or SQLite) on this machine
+author: nftpoetrist
+license: MIT
+homepage: https://github.com/nftpoetrist/hermes-offline-docsets
+tags: [docsets, documentation, offline, reference, api]
+requires_hermes: ">=0.23.4"
+provides_tools:
+  - docset_list
+  - docset_search
+  - docset_read
+config_schema:
+  paths:
+    type: list
+    default: []
+    description: >-
+      .docset folders, or folders holding .docset folders (scanned one level deep), to offer to the
+      agent. Each docset's id is its folder name without .docset.
+  max_chars:
+    type: int
+    default: 12000
+    description: Characters of page text docset_read returns per call (1000-100000); longer pages are read in parts.
